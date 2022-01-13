@@ -28,8 +28,8 @@ const Users = {
     getAll: async () => {
         return await User.findAll()
     },
-    getUser: async (id_user)=>{
-        return await User.findAll({ exclude: {id_user} })
+    getUser: async ()=>{
+        return await User.findAll({ attributes: ['id'] })
     }
 }
 

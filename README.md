@@ -1,5 +1,4 @@
 <img src="public/img/sb.png" style="width: 200px;" alt="App">
-<br>
 <hr>
 
 # Gerenciador Seu Boné  ***Em Desenvolvimento***

@@ -3,6 +3,7 @@ const { Dados } = require('../models/Dados') // dados de acordo com o usuario
 const { dadosBanco } = require('../models/Dados')
 const { Key, Auth } = require('../middlewares/auth')
 const session = require('express-session')
+const { Users } = require('../models/User')
 
 
 const inicio = async (req, res)=>{
@@ -29,6 +30,24 @@ const inicioPost = async (req, res)=>{
         let nomecard = req.body.nomecard
         let quantidade = req.body.quantidade
         let tipo = req.body.tipo
+        let qtdtotal = 0
+        let qtdcard = 0
+
+        // logica de pontuação
+        // qtdTotal
+        if(tipo == 'Retificação Layout' || tipo == 'Retificação Folha'){
+            qtdtotal = 0
+            qtdcard = 0 //qtdcard
+
+        } if (tipo == 'Mod Layout'){
+            qtdtotal = quantidade * 0.5
+        } if (tipo == 'Layout' || tipo == 'Folha' || tipo == 'Mod Folha') {
+            qtdtotal = quantidade
+        }
+        // qtdcard
+        if(tipo == 'Layout' || tipo == 'Folha' || tipo == 'Mod Layout' || tipo == 'Mod Folha'){
+            qtdcard = 1
+        }
 
         
         const user_form = await dadosBanco.create({
@@ -37,8 +56,8 @@ const inicioPost = async (req, res)=>{
                 nomecard: nomecard,
                 tipo: tipo,
                 quantidade: quantidade,
-                qtdtotal: '0',
-                qtdcard: '0'
+                qtdtotal: qtdtotal,
+                qtdcard: qtdcard
         })
 
         res.redirect('/inicio');
@@ -60,7 +79,10 @@ const inicioPost = async (req, res)=>{
 const dash = async (req, res)=>{
     let geral = await Dados.getAll()
     let unico = await Dados.getUser(req.session.id_user)
+    let abas = await Users.getAll()
     let adm = req.session.adm_user
+    let unico_dash =await Dados.getUser(1)
+    let unico_dash_2 = await Dados.getUser(2)
 
     let ver = true
     let dados
@@ -73,6 +95,9 @@ const dash = async (req, res)=>{
         dados,
         adm,
         geral,
+        abas,
+        unico_dash,
+        unico_dash_2,
     })
 }
 

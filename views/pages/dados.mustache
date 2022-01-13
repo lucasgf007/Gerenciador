@@ -16,8 +16,21 @@
             </div>
           </div>
 
-          <!-- GRÁFICO -->
-          <canvas class=" w-100" id="myChart" width="900" height="380"></canvas>
+          <!-- GRÁFICOS -->
+          
+            <div class="row">
+              <div class="col">
+                <h2 class="h3">Quantidade</h2>
+                <canvas class=" w-100" id="myChart" width="900" height="380"></canvas>
+              </div>
+              <div class="col">
+                <h2 class="h3">Cards</h2>
+                <canvas class=" w-100" id="myChart2" width="900" height="380"></canvas>
+              </div>
+            </div>
+          
+          
+          
 
           <h2 class="dados">Dados</h2>
 
@@ -65,6 +78,7 @@
       });
       </script>
 
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -86,9 +100,39 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+          labels: [{{#dados}} "{{quantidade}}", {{/dados}}],
           datasets: [{
-            data: [15, 30, 40, 30, 50],
+            data: [{{#dados}}  {{qtdtotal}}, {{/dados}}],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+
+    <script>
+      var ctx = document.getElementById("myChart2");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [{{#dados}} "{{quantidade}}", {{/dados}}],
+          datasets: [{
+            data: [{{#dados}}  {{qtdcard}}, {{/dados}}],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',
@@ -112,5 +156,6 @@
     </script>
 
     <script src="/../src/controllers/grafico.js"></script>
+    
   </body>
 </html>

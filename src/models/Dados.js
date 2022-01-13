@@ -22,13 +22,13 @@ const dadosBanco = sequelize.define("Dados", {
         type: DataTypes.STRING
     },
     quantidade: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     },
     qtdtotal: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     },
     qtdcard: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     }
 }, {
     tableName: 'dados',
