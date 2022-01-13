@@ -1,0 +1,92 @@
+{{>partials/header}}
+
+<section class="container">
+
+            <div id="menssagem">
+                {{#dados_error}}
+                    {{! menssagem de alerta }}
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                      ERROR: Digite algo válido nos campos abaixo!!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                {{/dados_error}} 
+            </div>
+            <div id="msgError">
+              
+            </div>
+
+            <div class="row mt-4 cadastro mb-4">
+                <div class="col-sm-12 p-3">
+                    <div class="row" >
+                        {{#dados}}
+                            <p class="text-uppercase font-weight-light text-monospace mr-2">Atualize seu card</p>
+                        {{/dados}}
+                        {{#user}}
+                            <p class="text-uppercase font-weight-light text-monospace mr-2">Atualize o Usuário</p>
+                        {{/user}}
+                        <div id="fraseRetorno"> 
+
+                        </div>
+                    </div>
+                    {{#dados}}
+                    <form method="GET" action="/usuario/{{id}}/mude"> 
+                        <div class="row">
+                            
+                                <label for="Data" class="mt-2">Data</label>
+                                <input type="text" class="form-control" id="data" name="data" placeholder="Informe a data">
+                            
+                            
+                                <label for="Nomecard" class="mt-2">Nome do Card</label>
+                                <input type="text" class="form-control" id="nomecard" placeholder="Nome" name="nomecard" value="{{nomecard}}">
+                            
+                          
+                        </div>
+                        
+                        <div class="row">
+                                
+                                  <label for="Trabalho" class="mt-2">Tipo de Trabalho</label>
+                                  <input type="text" class="form-control" id="nomecard" placeholder="Tipo" name="tipo" value="{{tipo}}">
+                                  <label class="mt-2">Quantidade</label>
+                                    <input type="text" class="form-control" name="quantidade" placeholder="Quantidade" id="quantidade" value="{{quantidade}}">
+                                    <button type="submit" type="submit" class="btn btn-primary mt-3">
+                                                Atualizar Card
+                                    </button>
+                        </div>
+                    </form>
+                    {{/dados}}
+
+                    {{#user}}
+                    <form method="GET" action="/user/{{id}}/mude_user"> 
+                        <div class="row">
+                            
+                                <label for="Data" class="mt-2">ID</label>
+                                <input type="text" class="form-control" id="data" name="id" value="{{id}}" disabled="">
+                            
+                            
+                                <label for="Nomecard" class="mt-2">Nome do Usuário</label>
+                                <input type="text" class="form-control" id="nomecard" placeholder="Nome" name="nome" value="{{nome}}">
+                            
+                          
+                        </div>
+                        
+                        <div class="row">
+                                
+                                  <label for="Trabalho" class="mt-2">Senha</label>
+                                  <input type="text" class="form-control" id="nomecard" placeholder="Tipo" name="senha" value="{{senha}}">
+                                  <label class="mt-2">Administrador ?</label>
+                                    <input type="text" class="form-control" name="adm" placeholder="Quantidade" id="quantidade" value="{{adm}}">
+                                    <button type="submit" type="submit" class="btn btn-primary mt-3">
+                                                Atualizar User
+                                    </button>
+                        </div>
+                    </form>
+                    {{/user}}
+
+                </div>
+            </div>
+        </section>
+
+

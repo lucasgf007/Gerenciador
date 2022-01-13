@@ -1,0 +1,148 @@
+{{>partials/header}}
+
+<section class="container">
+
+            <div id="menssagem">
+                {{#welcome}}
+                    <div class="alert alert-primary alert-dismissible fade show mt-2" role="alert"> 
+                        <strong>Seja Bem vindo {{nome}}!</strong> Pra Cima!!! 📢🚀 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {{/welcome}}
+                {{#dados_error}}
+                    {{! menssagem de alerta }}
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                      ERROR: Digite algo válido nos campos abaixo!!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                {{/dados_error}} 
+            </div>
+            <div id="msgError">
+              
+            </div>
+            
+            <div class="row barra">
+                <div class="col-sm-5">
+                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar...">
+                </div>
+                <div class="row col-sm-5">
+                    
+                </div>
+                <div class="col-sm-2">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Adicionar Usuário
+                    </button>
+                </div>
+            </div>
+
+            <div class="tabela">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Nome </th>
+                        <th> Senha </th>
+                        <th> Administrador</th>
+                        <th> Editar </th>
+                        <th> Excluir </th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody id="myTable" class="alinhar">
+                    {{#user}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{nome}}</td>
+                            <td>{{senha}}</td>
+                            <td>{{adm}}</td>
+                            <td> 
+                                <a href="/user/{{id}}/{{nome}}/{{senha}}/{{adm}}/atualizar_user" class="btn btn-primary"> 
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a> 
+                            </td>
+                            <td>
+                                <a href="/user/{{id}}/delet_user" class="btn btn-outline-danger"> 
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>                       
+                            </td>
+                        </tr>
+                    {{/user}}
+                    
+                    </tbody>
+                </table>
+                {{^user}}
+                    <tr>
+                        <div class="alert alert-info" role="alert">
+                            Não perca tempo e faça um registro! 😀
+                        </div>  
+                    </tr>
+                {{/user}}
+
+                </div>
+    
+                <script>
+                $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+                });
+                </script>
+            </div>
+
+            
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Usuário</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/enviado_user"> 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Data">Nome</label>
+                                <input type="text" class="form-control" name="nome" placeholder="Nome">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Nomecard">Senha</label>
+                                <input type="text" class="form-control" id="nomecard" placeholder="Senha" name="senha">
+                            </div>
+                          
+                        </div>
+                        
+                        <div class="form-row">
+                                <div class="form-group col-md-11">
+                                  <input type="checkbox" id="adm" name="adm" value="sim">
+                                    <label for="adm"> Tornar esse usuário administrador? </label>
+                                </div>
+                                <div class="form-group col-md-1">
+                                    
+                                </div>
+                        </div>
+                    
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </div>
+                    </form>
+            </div>
+            </div>
+            
+            
+        </section>
+
+{{>partials/footer}}

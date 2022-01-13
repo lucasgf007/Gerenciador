@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="O nosso site é um sistema básico de organização de finanças">
+
+    <!-- TITULO DO SITE -->
+    <title>Gerenciador</title>
+    <link rel="shortcut icon" href="/img/archive-solid.svg" type="image/x-icon">
+
+    <!-- Bootstrap início -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap fim -->
+    
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <!-- folha de estilo -->
+    <link rel="stylesheet" href="/css/login.css">
+
+    
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg barra mb-5">
+        <div class="container">
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              <img src="/img/sb.png" width="160"  alt="Orçamento pessoal">
+            </a>
+          </div>
+        </div>
+      </nav>
+  
+      <section class="container">
+           {{#msg_error}}
+                    {{! menssagem de alerta }}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                      ERROR: Digite algo válido nos campos abaixo!!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+            {{/msg_error}}      
+          <div class="wrapper fadeInDown">
+              <div id="formContent">
+                  <!-- Tabs Titles -->
+
+                  <!-- Icon -->
+                  <div class="fadeIn first p-4">
+                    <img src="/img/logo2.png" alt="User Icon" />
+                  </div>
+              
+                  <!-- Login Form -->
+                  <form action="/user" method="POST">
+                    <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome">
+                    <input type="text" id="senha" class="fadeIn third" name="senha" placeholder="Senha">
+                    <input type="submit" class="enviar fadeIn fourth" value="Entrar">
+                  </form>
+              
+                  <!-- Remind Passowrd -->
+                  <div id="formFooter">
+                    <a class="underlineHover" href="/html/admin.html">Entrar como Administrador</a>
+                  </div>
+                    
+          
+              </div>
+          </div>
+      </section>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+</body>
+</html>

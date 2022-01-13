@@ -1,0 +1,262 @@
+{{>partials/header}}
+
+        <section class="container">
+
+            <div id="menssagem">
+                {{#welcome}}
+                    <div class="alert alert-primary alert-dismissible fade show mt-2" role="alert"> 
+                        <strong>Seja Bem vindo {{nome}}!</strong> Pra Cima!!! 📢🚀 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {{/welcome}}
+                {{#dados_error}}
+                    {{! menssagem de alerta }}
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                      ERROR: Digite algo válido nos campos abaixo!!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                {{/dados_error}} 
+            </div>
+            <div id="msgError">
+              
+            </div>
+
+            <div class="row mt-4 cadastro mb-4">
+                <div class="col-sm-12 p-3">
+                    <div class="row" >
+                        <p class="text-uppercase font-weight-light text-monospace mr-2">cadastre seu card</p>
+                        <div id="fraseRetorno"> 
+
+                        </div>
+                    </div>
+                    
+                    <form method="POST" action="/enviado"> 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Data">Data</label>
+                                <input type="text" class="form-control" id="data" value="" name="data">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Nomecard">Nome do Card</label>
+                                <input type="text" class="form-control" id="nomecard" placeholder="Nome" name="nomecard">
+                            </div>
+                          
+                        </div>
+                        
+                        <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="Trabalho">Tipo de Trabalho</label>
+                                  <input type="text" class="form-control" id="nomecard" placeholder="Tipo" name="tipo">
+                                  {{! <select id="trabalho" class="form-control">
+                                    <option  value= null selected>Escolher...</option>
+                                    <option  value="Layout">Layout</option>
+                                    <option  value="Mod Layout">Mod Layout</option>
+                                    <option  value="Retificação Layout">Retificação Layout</option>
+                                    <option  value="Folha">Folha</option>
+                                    <option  value="Mod Folha">Mod Folha</option>
+                                    <option  value="Retificação Folha">Retificação Folha</option>
+                                  </select> }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <label>Quantidade</label>
+                                            <input type="text" class="form-control" name="quantidade" placeholder="Quantidade" id="quantidade">
+                                        </div>
+                                        <div class="col-md-2 botao">
+                                            <button type="submit" type="submit" class="btn btn-primary rounded-circle">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            
+            <div class="row barra">
+                <div class="col-sm-5">
+                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar...">
+                </div>
+                <div class="row col-sm-1">
+                    
+                </div>
+                <div class="col-sm-6 ">
+                    <div class="add">
+                        <div class="">
+                            <!-- Section: Social media -->
+                            <section class="mb-4">
+                              
+                              <!-- Google -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="dados.html" role="button"
+                                ><i class="fas fa-chart-line"></i></a>
+
+                              <button type="submit" class="btn btn-outline-dark btn-floating m-1" onclick="filtrar()">
+                                    ASC            
+                              </button>
+                        
+                              <!-- Instagram -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                                ><i class="fab fa-instagram"></i
+                              ></a>
+                        
+                              <!-- Linkedin -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                                ><i class="fab fa-linkedin-in"></i
+                              ></a>
+                        
+                              <!-- Github -->
+                              <a target="_blank"  class="btn btn-outline-dark btn-floating m-1" href="https://github.com/lucasgf007/GerenciadorDSB" role="button"
+                                ><i class="fas fa-code"></i></a>
+                            </section>
+                            <!-- Section: Social media -->
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tabela">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th> Nome do Card </th>
+                        <th>Tipo trabalho</th>
+                        <th>Quantidade</th>
+                        <th></th>
+                        <th></th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody id="myTable" class="alinhar">
+                    {{#dados}}
+                        <tr>
+                            <td>{{data}}</td>
+                            <td>{{nomecard}}</td>
+                            <td>{{tipo}}</td>
+                            <td>{{quantidade}}</td>
+                            <td> 
+                                <a href="/usuario/{{id}}/{{nomecard}}/{{tipo}}/{{quantidade}}/atualizar" class="btn btn-primary"> 
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>  
+                            </td>
+                            <td>
+                                <a href="/usuario/{{id}}/delet" class="btn btn-outline-danger"> 
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>                       
+                            </td>
+                        </tr>
+                    {{/dados}}
+                    
+                    </tbody>
+                </table>
+                {{^dados}}
+                    <tr>
+                        <div class="alert alert-info" role="alert">
+                            Não perca tempo e faça um registro! 😀
+                        </div>  
+                    </tr>
+                {{/dados}}
+
+                
+                <nav aria-label="Navegação de página exemplo">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Anterior</span>
+                      </a>
+                    </li>
+                    {{#dados}}
+                      <li class="page-item"><a class="page-link" href="#"> 1 </a></li>
+                    {{/dados}}
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Próximo">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Próximo</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
+                </div>
+    
+                <script>
+                $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+                });
+                </script>
+            </div>
+            
+            
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+          
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+          
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-google"></i
+                ></a>
+          
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+          
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+          
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </section>
+              <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2021 Copyright:
+              <a class="text-white" href="https://seubone.com/">seubone.com</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+          <!-- Final do footer -->
+
+
+
+          {{! MODAL }}
+           
+{{>partials/footer}}

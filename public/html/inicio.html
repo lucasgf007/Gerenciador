@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="O nosso site é um sistema básico de organização de finanças">
+
+    <!-- TITULO DO SITE -->
+    <title>Gerenciador</title>
+    <link rel="shortcut icon" href="../img/archive-solid.svg" type="image/x-icon">
+
+    <!-- Bootstrap início -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap fim -->
+    
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <!-- folha de estilo -->
+    <link rel="stylesheet" href="../css/inicio.css">
+
+
+
+
+    
+</head>
+    <body class="fundo">
+        <!-- MENU -->
+        <nav class="navbar navbar-expand-lg" id="menu">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <a class="navbar-brand" href="inicio.html">
+                        <img src="../img/sb.png" width="180"  alt="Orçamento pessoal">
+                    </a>
+                
+                    <div class="add">
+                        <div class="collapse navbar-collapse menu" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="inicio.html">Início</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="dados.html">Dados</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" onclick="sair()" >Sair</a>
+                                </li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                    
+            </div>
+           
+        </nav>
+        <!-- FIM DO MENU -->
+
+        <section class="container">
+
+            <div id="menssagem">
+                
+            </div>
+            <div id="msgError">
+
+            </div>
+
+            <div class="row mt-4 cadastro mb-4">
+                <div class="col-sm-12 p-3">
+                    <div class="row" >
+                        <p class="text-uppercase font-weight-light text-monospace mr-2">cadastre seu card</p>
+                        <div id="fraseRetorno"> 
+
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Data">Data</label>
+                                <input type="text" class="form-control" id="data" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Nomecard">Nome do Card</label>
+                                <input type="text" class="form-control" id="nomecard" placeholder="Nome" name="nome">
+                            </div>
+                          
+                        </div>
+                        
+                        <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="Trabalho">Tipo de Trabalho</label>
+                                  <select id="trabalho" class="form-control">
+                                    <option value= null selected>Escolher...</option>
+                                    <option value="Layout">Layout</option>
+                                    <option value="Mod Layout">Mod Layout</option>
+                                    <option value="Retificação Layout">Retificação Layout</option>
+                                    <option value="Folha">Folha</option>
+                                    <option value="Mod Folha">Mod Folha</option>
+                                    <option value="Retificação Folha">Retificação Folha</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <label>Quantidade</label>
+                                            <input type="text" class="form-control" placeholder="Quantidade" id="quantidade">
+                                        </div>
+                                        <div class="col-md-2 botao">
+                                            <button type="submit" class="btn btn-primary rounded-circle" onclick="cadastrarDados()">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                        </div>
+                              
+                    
+                </div>
+            </div>
+            
+            <div class="row barra">
+                <div class="col-sm-5">
+                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar...">
+                </div>
+                <div class="row col-sm-1">
+                    
+                </div>
+                <div class="col-sm-6 ">
+                    <div class="add">
+                        <div class="">
+                            <!-- Section: Social media -->
+                            <section class="mb-4">
+                              
+                              <!-- Google -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="dados.html" role="button"
+                                ><i class="fas fa-chart-line"></i></a>
+                        
+                              <!-- Instagram -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                                ><i class="fab fa-instagram"></i
+                              ></a>
+                        
+                              <!-- Linkedin -->
+                              <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                                ><i class="fab fa-linkedin-in"></i
+                              ></a>
+                        
+                              <!-- Github -->
+                              <a target="_blank"  class="btn btn-outline-dark btn-floating m-1" href="https://github.com/lucasgf007/GerenciadorDSB" role="button"
+                                ><i class="fas fa-code"></i></a>
+                            </section>
+                            <!-- Section: Social media -->
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tabela">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th> Nome do Card </th>
+                        <th>Tipo trabalho</th>
+                        <th>Quantidade</th>
+                        <th></th>
+                        <th></th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody id="myTable" class="alinhar">
+                    <tr>
+                        <td>24/11/2020</td>
+                        <td>Mario 3 1989 - PORTAL PLACAS</td>
+                        <td>Layout</td>
+                        <td>4</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>25/11/2020</td>
+                        <td>João marcos 2 5363 - FAMÍLIA UNIDA, FAMÍLIA FELIZ</td>
+                        <td>Layout</td>
+                        <td>7</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26/11/2020</td>
+                        <td>Maria Victoria 1 0864 - HASHDEX</td>
+                        <td>Layout</td>
+                        <td>6</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29/11/2020</td>
+                        <td>Mario 3 1989 - PORTAL PLACAS</td>
+                        <td>Mod Layout</td>
+                        <td>2</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26/11/2020</td>
+                        <td>Maria Victoria 1 0864 - HASHDEX</td>
+                        <td>Layout</td>
+                        <td>6</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29/11/2020</td>
+                        <td>Mario 3 1989 - PORTAL PLACAS</td>
+                        <td>Mod Layout</td>
+                        <td>2</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26/11/2020</td>
+                        <td>Maria Victoria 1 0864 - HASHDEX</td>
+                        <td>Layout</td>
+                        <td>6</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29/11/2020</td>
+                        <td>Mario 3 1989 - PORTAL PLACAS</td>
+                        <td>Mod Layout</td>
+                        <td>2</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26/11/2020</td>
+                        <td>Maria Victoria 1 0864 - HASHDEX</td>
+                        <td>Layout</td>
+                        <td>6</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29/11/2020</td>
+                        <td>Mario 3 1989 - PORTAL PLACAS</td>
+                        <td>Mod Layout</td>
+                        <td>2</td>
+                        <td> 
+                            <button type="button" class="btn btn-primary" onclick="editar()">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="excluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                
+                </div>
+    
+                <script>
+                $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+                });
+                </script>
+            </div>
+            
+            
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+          
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+          
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-google"></i
+                ></a>
+          
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+          
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+          
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </section>
+              <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2021 Copyright:
+              <a class="text-white" href="https://seubone.com/">seubone.com</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+          <!-- Final do footer -->
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+        <script src="../js/geral.js"></script>
+        <!-- JavaScript -->
+        <script src="../js/cadastro.js"></script>
+        
+ 
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+
+    </body>
+</html>
