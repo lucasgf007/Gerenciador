@@ -37,7 +37,7 @@ dotenv.config()
 
 // servidor
 server.listen(process.env.PORT, ()=>{
-    console.log('servidor ativo, executando na porta 80')
+    console.log('servidor ativo, executando na porta 3000')
 })
 
 // tamplate engines
