@@ -46,7 +46,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Organizar informações nas sessões
 - [ ] Autenticação dos usuário ( não tão grave )
 - [ ] paginação
-- [ ] Gráfico de dados
+- [x] Gráfico de dados
 - [ ] Exportar tebela
 - [ ] Vídeo explicativo
 - [ ] Deixar 100% funcional
