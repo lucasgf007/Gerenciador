@@ -1,20 +1,23 @@
 <img src="public/img/sb.png" style="width: 200px;" alt="App">
 <br>
-<br>
+<hr>
 
-# Gerenciador Seu Boné ( * Em Desenvolvimento * )
+# Gerenciador Seu Boné  ***Em Desenvolvimento***
 
 -> O projeto é feito em NodeJS, um software de código aberto que opera no lado so servidor. <br>
 -> A organização do código é estrturado no estilo MVC (Model, Controller e View) <br>
 -> Rotas definidas separadamente na pasta (routes)<br>
 
-<button type="button" style="width: 200px; color: #ffffff; background-color: #30779b" >Ver projeto (em breve)</button>
+<div style="color: #ffffff; text-align: center;">
+  <a class="nav-link" href="#iniciando-projeto" style="width: 250px; color: #ffffff; background-color: #30779b">Iniciando projeto</a>
+  <a class="nav-link" href="#ajustes-e-melhorias" style="width: 250px; color: #ffffff; background-color: #30779b">Ajustes e melhorias</a>
+  <a class="nav-link" href="#-contribuindo-para-gerenciador-sb" style="width: 250px; color: #ffffff; background-color: #30779b">Contribuindo com o projeto</a>
+  <a class="nav-link" href="#-colaboradores" style="width: 250px; color: #ffffff; background-color: #30779b">Colaboradores</a>
 
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+  <img src="public/img/login.png" alt="App" style="margin-left: 38px; text-align: center; margin-top: 20px;"> <br>
+ > Tela de login
+</div>
 
-<img src="public/img/login.png" alt="App"> <br>
-- Tela de login
 
 <hr>
 <br>
@@ -77,8 +80,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/lucasgf007">
-        <img src="https://avatars.githubusercontent.com/u/72115800?s=400&u=6f14e8c36cc2841cfa13b16ff290ce8fba174a2f&v=4" width="100px;" alt="Foto do Lucas Gabriel no GitHub"/><br>
+      <a href="https://github.com/Paull20-20">
+        <img src="https://avatars.githubusercontent.com/u/69013387?v=4" width="100px;" alt="Foto do Paull20-20 no GitHub"/><br>
         <sub>
           <b>Tiago</b>
         </sub>
