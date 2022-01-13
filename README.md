@@ -9,9 +9,9 @@
 -> Rotas definidas separadamente na pasta (routes)<br>
 
 <div style="color: #ffffff; text-align: center;">
-  <a class="nav-link" href="#iniciando-projeto" style="width: 250px; color: #ffffff; background-color: #30779b">Iniciando projeto</a>
-  <a class="nav-link" href="#ajustes-e-melhorias" style="width: 250px; color: #ffffff; background-color: #30779b">Ajustes e melhorias</a>
-  <a class="nav-link" href="#-contribuindo-para-gerenciador-sb" style="width: 250px; color: #ffffff; background-color: #30779b">Contribuindo com o projeto</a>
+  <a class="nav-link" href="#iniciando-projeto" style="width: 250px; color: #ffffff; background-color: #30779b">Iniciando projeto</a> | 
+  <a class="nav-link" href="#ajustes-e-melhorias" style="width: 250px; color: #ffffff; background-color: #30779b">Ajustes e melhorias</a> | 
+  <a class="nav-link" href="#-contribuindo-para-gerenciador-sb" style="width: 250px; color: #ffffff; background-color: #30779b">Contribuindo com o projeto</a> |
   <a class="nav-link" href="#-colaboradores" style="width: 250px; color: #ffffff; background-color: #30779b">Colaboradores</a>
 
   <img src="public/img/login.png" alt="App" style="margin-left: 38px; text-align: center; margin-top: 20px;"> <br>
