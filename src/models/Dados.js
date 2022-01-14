@@ -3,6 +3,7 @@
 const { count } = require('console')
 const { Model, DataTypes, Sequelize } = require('sequelize')
 const { sequelize } = require('../instances/mysql') 
+const { Op } = require('sequelize')
 
 const dadosBanco = sequelize.define("Dados", {
     id: {
@@ -50,13 +51,28 @@ const Dados = {
     },
     getSize: async (id_user) => {
         let { count: size, row: dados } = await dadosBanco.findAndCountAll({
-            where: { id_user }
+            where: { id_user },
+            [Op.or]: [
+                {qtdcard: 1},
+            ],
         })
 
         return size
     },
     getUser: async (id_user)=>{
         return await dadosBanco.findAll({ where: {id_user} })
+    }, 
+    getSeach: async (id_user, nomecard, data)=>{
+        return await dadosBanco.findAll({ 
+            where: {
+                id_user, 
+                [Op.or]: [
+                    {data},
+                    {nomecard}
+                ],
+                 
+            },
+         })
     }
 }
 

@@ -9,10 +9,16 @@ const { Users } = require('../models/User')
 const inicio = async (req, res)=>{
     console.log( 'id: ', req.session.id_user)
 
+    let dados
+
     let token = req.session.token_user
     // Auth.private(token)
 
-    let dados = await Dados.getUser(req.session.id_user)
+    if (req.session.adm_user == true) {
+        dados = await Dados.getAll()
+    } else {
+        dados = await Dados.getUser(req.session.id_user)
+    }
 
     let adm = req.session.adm_user
 
@@ -62,12 +68,16 @@ const inicioPost = async (req, res)=>{
 
         res.redirect('/inicio');
     }
+    let dados
 
+    if (req.session.adm_user == true) {
+        dados = await Dados.getAll()
+    } else {
+        dados = await Dados.getUser(req.session.id_user)
+    }
 
     let adm = req.session.adm_user
-
     let dados_error = true
-    let dados = await Dados.getUser(req.session.id_user)
 
     res.render('pages/inicio', {
         dados_error,
@@ -84,11 +94,7 @@ const dash = async (req, res)=>{
     let unico_dash =await Dados.getUser(1)
     let unico_dash_2 = await Dados.getUser(2)
     let qtdCart = await Dados.getSize(req.session.id_user)
-
-    let ver = 0
-    for(let i = 0; i<qtdCart; i++){
-        ver = i
-    }
+    
 
 
     let dados
@@ -99,7 +105,7 @@ const dash = async (req, res)=>{
     }
     res.render('pages/dados', {
         dados,
-        ver,
+        qtdCart,
         adm,
         geral,
         abas,

@@ -30,7 +30,7 @@ server.use((req, res, next)=>{
 
 // rotas import
 const mainRoutes = require('./routes/index')
-const painelRoutes = require('./routes/painel_adm')
+
 
 // dotenv | gerenciador de ambiente
 dotenv.config()
@@ -49,7 +49,7 @@ server.engine('mustache', mustache())
 server.use(express.static(path.join(__dirname, '../public')))
 server.use(express.urlencoded({extended: true})) // habilita o post
 server.use(mainRoutes.router)
-server.use('/painel', painelRoutes.router) // tem um prefixo
+
 
 
 // pag 404

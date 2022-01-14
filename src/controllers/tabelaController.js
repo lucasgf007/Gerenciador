@@ -53,6 +53,20 @@ const mude = async (req, res)=>{
         let quantidade = req.query.quantidade
         let tipo = req.query.tipo
 
+        if(tipo == 'Retificação Layout' || tipo == 'Retificação Folha'){
+            qtdtotal = 0
+            qtdcard = 0 //qtdcard
+
+        } if (tipo == 'Mod Layout'){
+            qtdtotal = quantidade * 0.5
+        } if (tipo == 'Layout' || tipo == 'Folha' || tipo == 'Mod Folha') {
+            qtdtotal = quantidade
+        }
+        // qtdcard
+        if(tipo == 'Layout' || tipo == 'Folha' || tipo == 'Mod Layout' || tipo == 'Mod Folha'){
+            qtdcard = 1
+        }
+
         if(req.query.data){
             await dadosBanco.update({ 
                 data: data,

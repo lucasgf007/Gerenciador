@@ -9,6 +9,7 @@ const dadosController = require('../controllers/dadosController')
 const verificarUser = require('../controllers/verificarUser')
 const tabelaController = require('../controllers/tabelaController')
 const usuarios = require('../controllers/usuarios')
+const pesquisa = require('../controllers/pesquisa')
 const { Auth } = require('../middlewares/auth')
 
           //rota "/" primeira a exibir
@@ -31,6 +32,9 @@ router.get('/user/:id/delet_user', tabelaController.deletUser)
 router.get('/user/:id/:nome/:senha/:adm/atualizar_user', tabelaController.atualizarUser)
 router.get('/user/:id/mude_user', tabelaController.mude_user)
 router.get('/logout', homeController.logout)
+
+// Rota de pesquisa
+router.get('/pesquisa', pesquisa.pesquisa)
 
 // METODH POST
 router.post('/enviado', dadosController.inicioPost)

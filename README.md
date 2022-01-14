@@ -33,6 +33,11 @@
 <br>
 <br>
 
+## Usuário de teste
+- Nome: root
+- Senha: pass
+<br>
+
 ## Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
