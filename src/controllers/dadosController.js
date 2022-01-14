@@ -83,8 +83,14 @@ const dash = async (req, res)=>{
     let adm = req.session.adm_user
     let unico_dash =await Dados.getUser(1)
     let unico_dash_2 = await Dados.getUser(2)
+    let qtdCart = await Dados.getSize(req.session.id_user)
 
-    let ver = true
+    let ver = 0
+    for(let i = 0; i<qtdCart; i++){
+        ver = i
+    }
+
+
     let dados
     if (adm == true) {
         dados = geral
@@ -93,6 +99,7 @@ const dash = async (req, res)=>{
     }
     res.render('pages/dados', {
         dados,
+        ver,
         adm,
         geral,
         abas,

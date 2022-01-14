@@ -30,7 +30,6 @@
             </div>
           
           
-          
 
           <h2 class="dados">Dados</h2>
 
@@ -98,16 +97,16 @@
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: [{{#dados}} "{{quantidade}}", {{/dados}}],
+          labels: [{{#dados}} "{{tipo}}", {{/dados}}],
           datasets: [{
             data: [{{#dados}}  {{qtdtotal}}, {{/dados}}],
             lineTension: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: '#007bff',
             borderColor: '#007bff',
             borderWidth: 4,
-            pointBackgroundColor: '#007bff'
+            pointBackgroundColor: '#FFFF00'
           }]
         },
         options: {
@@ -128,13 +127,13 @@
     <script>
       var ctx = document.getElementById("myChart2");
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: [{{#dados}} "{{quantidade}}", {{/dados}}],
+          labels: ["Quantidade Total"],
           datasets: [{
             data: [{{#dados}}  {{qtdcard}}, {{/dados}}],
             lineTension: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: '#007bff',
             borderColor: '#007bff',
             borderWidth: 4,
             pointBackgroundColor: '#007bff'

@@ -14,11 +14,7 @@ const User = sequelize.define("User", {
     },
     adm: {
         type: DataTypes.STRING
-    },
-    key: {
-        type: DataTypes.STRING
-    } 
-
+    }
 }, {
     tableName: 'usuario',
     timestamps: false 
