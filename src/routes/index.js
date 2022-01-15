@@ -10,6 +10,7 @@ const verificarUser = require('../controllers/verificarUser')
 const tabelaController = require('../controllers/tabelaController')
 const usuarios = require('../controllers/usuarios')
 const pesquisa = require('../controllers/pesquisa')
+const excel = require('../controllers/export')
 const { Auth } = require('../middlewares/auth')
 
           //rota "/" primeira a exibir
@@ -35,6 +36,9 @@ router.get('/logout', homeController.logout)
 
 // Rota de pesquisa
 router.get('/pesquisa', pesquisa.pesquisa)
+
+// export
+router.get('/exportar', excel.excel)
 
 // METODH POST
 router.post('/enviado', dadosController.inicioPost)

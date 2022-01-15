@@ -1,10 +1,6 @@
 const { Dados } = require('../models/Dados') // dados de acordo com o usuario
 
 
-
-
-
-
 const pesquisa = async (req, res)=>{
 
     let dados
@@ -12,8 +8,9 @@ const pesquisa = async (req, res)=>{
 
     let data = req.query.data
     let nome = req.query.nome
+    let tipo = req.query.tipo
  
-    dados = await Dados.getSeach(req.session.id_user, nome, data)
+    dados = await Dados.getSeach(req.session.id_user, nome, data, tipo)
 
     let adm = req.session.adm_user
 

@@ -1,5 +1,6 @@
 {{>partials/header}}
 
+{{planilha}}
     <div class="container fundo">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Painel de Controle</h1>
@@ -8,8 +9,12 @@
                 <input class="form-control" id="myInput" type="text" placeholder="Pesquisar...">
               </div>
               <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
-                <button class="btn btn-sm btn-outline-secondary">Exportar</button>
+                
+                        
+                <button class="btn btn-sm btn-outline-secondary"> compartilhar</button>
+                <a class="btn btn-sm btn-outline-secondary" href="/exportar" role="button">
+                  Exportar
+                </a>
               </div>
               
               

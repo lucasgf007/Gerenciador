@@ -62,13 +62,14 @@ const Dados = {
     getUser: async (id_user)=>{
         return await dadosBanco.findAll({ where: {id_user} })
     }, 
-    getSeach: async (id_user, nomecard, data)=>{
+    getSeach: async (id_user, nomecard, data, tipo)=>{
         return await dadosBanco.findAll({ 
             where: {
                 id_user, 
                 [Op.or]: [
                     {data},
-                    {nomecard}
+                    {nomecard},
+                    {tipo}
                 ],
                  
             },

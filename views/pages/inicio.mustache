@@ -84,25 +84,34 @@
             </div>
             
             <div class="row barra">
-                <div class="col-sm-9">
+                <div class="col-sm-10">
 
-                <div class="row">
+                        <div class="row">
                           <form action="/pesquisa">                       
                               <div class="form-row">
-                                      <div class="form-group col-md-6">
-                                        <input class="form-control" name="nome" type="text" placeholder="Pesquisar...">
+                                      <div class="form-group col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                              <input class="form-control" name="nome" type="text" placeholder="Nome Card">
+                                            </div>
+                                            <div class="col-md-4">
+                                              <input class="form-control" name="tipo" type="text" placeholder="Tipo">
+                                            </div>
+                                            <div class="col-md-4">
+                                                  <input type="text" class="form-control" placeholder="Ex.: 12/02/23" name="data">
+                                            </div>
+                                        </div>
+                                        
                                       </div>
-                                      <div class="form-group col-md-6">
+                                      <div class="form-group col-md-2 ml-3">
                                           <div class="row">
-                                              <div class="col-md-8">
-                                                  <input type="text" class="form-control" id="data" value="" name="data">
-                                              </div>
-                                              <div class="col-md-2">
+                                              
+                                              <div class="col-md-6">
                                                   <button type="submit" type="submit" class="btn btn-primary">
                                                       <i class="fas fa-search"></i>
                                                   </button>
                                               </div>
-                                              <div class="col-md-2">
+                                              <div class="col-md-6">
                                                   <a class="btn btn-primary " href="/inicio" role="button">
                                                     <i class="fas fa-undo"></i>
                                                   </a>
@@ -114,7 +123,7 @@
                         </div>
 
                 </div>
-                <div class="col-sm-3 ">
+                <div class="col-sm-2">
                     <div class="add">
                         <div class="">
                             <!-- Section: Social media -->
