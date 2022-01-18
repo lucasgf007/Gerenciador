@@ -36,7 +36,7 @@ const mainRoutes = require('./routes/index')
 dotenv.config()
 
 // servidor
-server.listen(process.env.PORT || 3000, ()=>{
+server.listen(process.env.PORT, ()=>{
     console.log('servidor ativo, executando na porta 3000')
 })
 
